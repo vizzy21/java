@@ -1,0 +1,31 @@
+import java.util.*;
+public class tail
+{  
+/*tailing problem
+
+In this problem the tail size is 2*1 always, we can place it either vertically or horiz
+the board size is 2*N
+So we have to find the number of ways in which we can place those tails
+
+
+   */ 
+    public static int tailing(int n){
+       //base case:
+       if(n == 0  || n == 1){
+           return 1;
+       }
+       
+       int x = tailing(n-1);
+       int y = tailing(n-2);
+       return x+y;
+            
+    }
+    
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int tail_Width = sc.nextInt();
+		System.out.println("The number of ways we can do this is:" + tailing(tail_Width));
+		
+	}
+}
