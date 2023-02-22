@@ -1,0 +1,22 @@
+public class String_duplication{
+    public static void remove_duplicates(String str, int idx, StringBuilder nstr, boolean[] map) {
+        if (idx == str.length()) {
+            System.out.println(nstr);
+            return;
+        }
+        char Currchar = str.charAt(idx);
+        if (map[Currchar - 'a'] == true) {       //has been present so , u just need to inc index
+            remove_duplicates(str, idx + 1, nstr, map);
+        } else {
+            map[Currchar - 'a'] = true;          //not been present so u need to make it true for future and append
+            remove_duplicates(str, idx + 1, nstr.append(Currchar), map);
+        }
+    }
+
+    public static void main(String[] args) {
+        String str = "apnaaacolllegeee";
+        remove_duplicates(str, 0, new StringBuilder(), new boolean[26]);
+    }
+}
+
+//logic : 1-26 is a - z, and 0-20, so a-a=0,b-a=1 likie that index forms
