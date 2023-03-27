@@ -1,4 +1,4 @@
-public class Mergesorty {
+public class Mergesort {
     // default function to print array
     public static void printarr(int arr[]) {
         for (int i = 0; i < arr.length; i++) {
