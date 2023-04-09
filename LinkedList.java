@@ -154,6 +154,23 @@ public int removelast(){
    
 }
 
+public int iterativesearch(int key){
+    Node temp = head;
+    int i = 0;
+    while(temp!=null){
+        if(temp.data == key){
+            return i;  //data found at this index
+        }
+        temp = temp.next;
+        i++;
+    }
+    //key not found 
+    return -1;
+}
+
+//keep changing head to next node in every step in recursive search 
+
+	
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
 	    ll.addFirst(2); ll.addFirst(1);
@@ -166,8 +183,9 @@ public int removelast(){
 		ll.removelast();
 		ll.print(); //1 is removed
 		System.out.println("size of the linked list : " + ll.size);
-
-		
+        //iterative search
+		System.out.println(ll.iterativesearch(3));
+		System.out.println(ll.iterativesearch(11));
 	}
 }
 
