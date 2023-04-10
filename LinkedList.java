@@ -169,6 +169,18 @@ public int iterativesearch(int key){
 }
 
 //keep changing head to next node in every step in recursive search 
+public static Node reverseLinked(Node head){
+     Node prev = null;  
+     Node current = head;
+    
+        while(current != null) { 
+           Node next = current.next; 
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+       return prev; 
+    }
 
 	
 	public static void main(String[] args) {
@@ -186,6 +198,10 @@ public int iterativesearch(int key){
         //iterative search
 		System.out.println(ll.iterativesearch(3));
 		System.out.println(ll.iterativesearch(11));
+		ll.print();
+		Node head = reverseLinked(ll.head);
+		ll.head = head;
+		ll.print();
+
 	}
 }
-
